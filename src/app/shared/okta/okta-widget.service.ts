@@ -18,7 +18,7 @@ export class OktaWidgetService {
   public strstateToken;
   public oktaSignIn;
   public idToken;
-  public LogoutURI = this.OktaConfig.strPostLogoutURL;
+  // public LogoutURI = this.OktaConfig.strPostLogoutURL;
 
   constructor(private router: Router, private OktaConfig: OktaConfigService) { }
 
@@ -30,13 +30,13 @@ export class OktaWidgetService {
 
   async login(redirecturi, clientid, logoPath?, strBrand?) {
     // const OktaClientID = this.OktaConfig.strClientID;
-    const OktaClientID =  clientid;
+    const OktaClientID = clientid;
     const OktaBaseURI = this.OktaConfig.strBaseURI;
     const OktaLang = this.OktaConfig.strLang;
     const OktaRedirect = redirecturi;
     // const OktaBrand = this.OktaConfig.strBrand;
     const OktaBrand = strBrand;
-    const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
+    // const OktaPostlogoutURI = this.OktaConfig.strPostkLogoutURL;
     const OktaIssuer = this.OktaConfig.strIssuer;
     const OktaScope = this.OktaConfig.strScope;
     const OktaResType = this.OktaConfig.strResponseType;
@@ -52,7 +52,7 @@ export class OktaWidgetService {
       colors: {
         brand: OktaBrand,
       },
-      postLogoutRedirectUri: OktaPostlogoutURI,
+      // postLogoutRedirectUri: OktaPostlogoutURI,
       features: {
         rememberMe: false,
         selfServiceUnlock: false,
@@ -61,13 +61,9 @@ export class OktaWidgetService {
       },
       authParams: {
         issuer: OktaIssuer,
-        responseMode: OktaResMode,
-        responseType: OktaResType,
         scopes: OktaScope,
-        pkce: OktaPKCE,
-        prompt: OktaResMode
       },
-      useInteractionCodeFlow: 'true',
+      useInteractionCodeFlow: true,
 
     });
     console.log(OktaScope);
@@ -125,7 +121,7 @@ export class OktaWidgetService {
     const OktaLang = this.OktaConfig.strLang;
     const OktaRedirect = this.OktaConfig.strRedirectURL;
     const OktaBrand = this.OktaConfig.strBrand;
-    const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
+    // const OktaPostlogoutURI = this.OktaConfig.strPostLogoutURL;
     const OktaIssuer = this.OktaConfig.strIssuer;
     const OktaScope = this.OktaConfig.strScope;
     const OktaResType = this.OktaConfig.strResponseType;
@@ -138,15 +134,11 @@ export class OktaWidgetService {
       colors: {
         brand: OktaBrand,
       },
-      postLogoutRedirectUri: OktaPostlogoutURI,
       authParams: {
         issuer: OktaIssuer,
-        responseMode: 'fragment',
-        responseType: OktaResType,
         scopes: OktaScope,
-        pkce: false,
-        prompt: OktaResMode
       },
+      useInteractionCodeFlow: true,
     });
     oktaSignIn.remove();
 

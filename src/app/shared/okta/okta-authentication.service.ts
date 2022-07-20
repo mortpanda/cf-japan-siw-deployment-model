@@ -59,14 +59,14 @@ export class OktaAuthenticationService {
         brand: OktaBrand,
       },
       stateToken: this.strStateToken,
-      postLogoutRedirectUri: OktaPostlogoutURI,
+      // postLogoutRedirectUri: OktaPostlogoutURI,
       authParams: {
         issuer: OktaIssuer,
-        responseMode: OktaResMode,
-        responseType: OktaResType,
+        // responseMode: OktaResMode,
+        // responseType: OktaResType,
         scopes: OktaScope,
-        pkce: OktaPkce,
-        prompt: OktaPrompt
+        // pkce: OktaPkce,
+        // prompt: OktaPrompt
       },
     });
 
